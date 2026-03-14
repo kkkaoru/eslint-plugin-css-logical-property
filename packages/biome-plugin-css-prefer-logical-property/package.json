@@ -1,6 +1,6 @@
 {
   "name": "biome-plugin-css-prefer-logical-property",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Biome plugin that detects physical CSS properties, values, and units and suggests logical alternatives",
   "keywords": [
     "biome",
@@ -27,6 +27,14 @@
     "rules"
   ],
   "type": "module",
+  "exports": {
+    "./plugin": "./rules/prefer-logical.grit",
+    "./plugin.grit": "./rules/prefer-logical.grit",
+    "./rules/prefer-logical.grit": "./rules/prefer-logical.grit",
+    "./rules/prefer-logical-properties.grit": "./rules/prefer-logical-properties.grit",
+    "./rules/prefer-logical-values.grit": "./rules/prefer-logical-values.grit",
+    "./rules/prefer-logical-units.grit": "./rules/prefer-logical-units.grit"
+  },
   "scripts": {
     "test": "vitest run",
     "test:coverage": "vitest run --coverage"
