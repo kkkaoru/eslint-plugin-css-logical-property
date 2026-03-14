@@ -1,0 +1,19 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "plugins": [
+    "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical-properties.grit",
+    "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical-values.grit",
+    "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical-units.grit"
+  ],
+  "formatter": {
+    "enabled": false
+  },
+  "linter": {
+    "enabled": true
+  },
+  "css": {
+    "linter": {
+      "enabled": true
+    }
+  }
+}
