@@ -4,6 +4,7 @@
 import { it, expect } from "vitest";
 import {
   type BiomeResult,
+  COMBINED_PLUGIN,
   PROPERTIES_PLUGIN,
   UNITS_PLUGIN,
   VALUES_PLUGIN,
@@ -11,6 +12,42 @@ import {
   createTmpDir,
   runBiome,
 } from "./test-helpers.ts";
+
+// --- Combined rule tests ---
+
+it("combined rule detects properties, values, and units together", () => {
+  const tmpDir: string = createTmpDir();
+  try {
+    const result: BiomeResult = runBiome(
+      tmpDir,
+      ".a { width: 100px; text-align: left; height: 100vh; }",
+      [COMBINED_PLUGIN],
+    );
+    const output: string = result.stdout + result.stderr;
+    expect(output).toStrictEqual(expect.stringContaining("inline-size"));
+    expect(output).toStrictEqual(expect.stringContaining("start"));
+    expect(output).toStrictEqual(expect.stringContaining("vb"));
+  } finally {
+    cleanupTmpDir(tmpDir);
+  }
+});
+
+it("combined rule does not flag logical properties", () => {
+  const tmpDir: string = createTmpDir();
+  try {
+    const result: BiomeResult = runBiome(
+      tmpDir,
+      ".a { inline-size: 100px; text-align: start; block-size: 100vb; }",
+      [COMBINED_PLUGIN],
+    );
+    const output: string = result.stdout + result.stderr;
+    expect(output).not.toStrictEqual(
+      expect.stringContaining("Use logical"),
+    );
+  } finally {
+    cleanupTmpDir(tmpDir);
+  }
+});
 
 // --- Property detection tests ---
 

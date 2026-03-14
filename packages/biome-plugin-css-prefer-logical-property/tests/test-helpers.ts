@@ -28,6 +28,7 @@ const PROPERTIES_PLUGIN: string = join(
 );
 const VALUES_PLUGIN: string = join(RULES_DIR, "prefer-logical-values.grit");
 const UNITS_PLUGIN: string = join(RULES_DIR, "prefer-logical-units.grit");
+const COMBINED_PLUGIN: string = join(RULES_DIR, "prefer-logical.grit");
 
 const isExecError = (error: unknown): error is ExecError =>
   error instanceof Error &&
@@ -78,6 +79,7 @@ const runBiome = (
 };
 
 export {
+  COMBINED_PLUGIN,
   PROPERTIES_PLUGIN,
   UNITS_PLUGIN,
   VALUES_PLUGIN,
