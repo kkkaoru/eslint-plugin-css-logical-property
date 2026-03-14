@@ -1,6 +1,6 @@
 {
   "name": "biome-plugin-css-prefer-logical-property",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Biome plugin that detects physical CSS properties, values, and units and suggests logical alternatives",
   "keywords": [
     "biome",
@@ -20,7 +20,7 @@
   "author": "kkkaoru",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kkkaoru/eslint-plugin-css-logical-property",
+    "url": "git+https://github.com/kkkaoru/eslint-plugin-css-logical-property.git",
     "directory": "packages/biome-plugin-css-prefer-logical-property"
   },
   "files": [

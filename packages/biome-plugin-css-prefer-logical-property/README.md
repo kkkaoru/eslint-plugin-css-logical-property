@@ -12,7 +12,9 @@ npm install -D biome-plugin-css-prefer-logical-property @biomejs/biome
 
 ## Usage
 
-Add the plugin to your `biome.json`:
+### Combined rule (recommended)
+
+Use the combined rule to enable all checks (properties, values, and units) with a single line:
 
 ```json
 {
@@ -23,10 +25,13 @@ Add the plugin to your `biome.json`:
 }
 ```
 
-You can also enable individual rules instead of the combined one:
+### Individual rules
+
+You can also enable rules individually for more granular control:
 
 ```json
 {
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
   "plugins": [
     "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical-properties.grit",
     "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical-values.grit",
@@ -41,19 +46,32 @@ Then run:
 biome lint "**/*.css"
 ```
 
+## Exports
+
+| Export path | File | Description |
+|---|---|---|
+| `./plugin` | `rules/prefer-logical.grit` | Combined rule — all checks in one file |
+| `./plugin.grit` | `rules/prefer-logical.grit` | Alias for `./plugin` |
+| `./rules/prefer-logical.grit` | `rules/prefer-logical.grit` | Combined rule (explicit path) |
+| `./rules/prefer-logical-properties.grit` | `rules/prefer-logical-properties.grit` | Physical CSS properties only |
+| `./rules/prefer-logical-values.grit` | `rules/prefer-logical-values.grit` | Physical CSS values only |
+| `./rules/prefer-logical-units.grit` | `rules/prefer-logical-units.grit` | Physical CSS units only |
+
+> **Note:** Biome does not resolve npm `exports` for plugins. Use the full `./node_modules/` path in `biome.json` as shown in the [Usage](#usage) section.
+
 ## Rules
 
-### `prefer-logical-properties.grit`
+### Properties (52 mappings)
 
 Detects physical CSS properties and suggests logical alternatives.
 
 ```css
 /* Warns */
 .box {
-  width: 100px;        /* Use 'inline-size' */
-  margin-left: 10px;   /* Use 'margin-inline-start' */
+  width: 100px;          /* Use 'inline-size' */
+  margin-left: 10px;     /* Use 'margin-inline-start' */
   border-top: 1px solid; /* Use 'border-block-start' */
-  top: 0;              /* Use 'inset-block-start' */
+  top: 0;                /* Use 'inset-block-start' */
 }
 
 /* OK */
@@ -66,7 +84,7 @@ Detects physical CSS properties and suggests logical alternatives.
 ```
 
 <details>
-<summary>Full property mapping (52 properties)</summary>
+<summary>Full property mapping</summary>
 
 | Physical | Logical |
 |---|---|
@@ -125,14 +143,14 @@ Detects physical CSS properties and suggests logical alternatives.
 
 </details>
 
-### `prefer-logical-values.grit`
+### Values (12 mappings)
 
 Detects physical CSS values and suggests logical alternatives.
 
 ```css
 /* Warns */
-.text { text-align: left; }   /* Use 'start' */
-.float { float: right; }      /* Use 'inline-end' */
+.text { text-align: left; }     /* Use 'start' */
+.float { float: right; }        /* Use 'inline-end' */
 .resize { resize: horizontal; } /* Use 'inline' */
 
 /* OK */
@@ -142,7 +160,7 @@ Detects physical CSS values and suggests logical alternatives.
 ```
 
 <details>
-<summary>Full value mapping (6 properties)</summary>
+<summary>Full value mapping</summary>
 
 | Property | Physical value | Logical value |
 |---|---|---|
@@ -161,15 +179,15 @@ Detects physical CSS values and suggests logical alternatives.
 
 </details>
 
-### `prefer-logical-units.grit`
+### Units (10 mappings)
 
 Detects physical CSS units and suggests logical alternatives.
 
 ```css
 /* Warns */
 .box {
-  block-size: 100vh;   /* Use 'vb' */
-  inline-size: 50vw;   /* Use 'vi' */
+  block-size: 100vh; /* Use 'vb' */
+  inline-size: 50vw; /* Use 'vi' */
 }
 
 /* OK */
@@ -180,7 +198,7 @@ Detects physical CSS units and suggests logical alternatives.
 ```
 
 <details>
-<summary>Full unit mapping (10 units)</summary>
+<summary>Full unit mapping</summary>
 
 | Physical | Logical | Description |
 |---|---|---|
