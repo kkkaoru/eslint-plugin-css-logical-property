@@ -1,0 +1,54 @@
+{
+  "name": "eslint-plugin-css-logical-property-autofix",
+  "version": "0.1.0",
+  "description": "ESLint plugin that enforces CSS logical properties, values, and units with autofix support",
+  "license": "MIT",
+  "author": "kkkaoru",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kkkaoru/eslint-plugin-css-logical-property",
+    "directory": "packages/eslint-plugin-css-logical-property-autofix"
+  },
+  "homepage": "https://github.com/kkkaoru/eslint-plugin-css-logical-property#readme",
+  "bugs": {
+    "url": "https://github.com/kkkaoru/eslint-plugin-css-logical-property/issues"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "css",
+    "logical-properties",
+    "autofix",
+    "ltr",
+    "rtl",
+    "i18n"
+  ],
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "dist/plugin.mjs",
+  "types": "dist/plugin.d.mts",
+  "exports": {
+    ".": {
+      "import": "./dist/plugin.mjs",
+      "types": "./dist/plugin.d.mts"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "tsdown"
+  },
+  "devDependencies": {
+    "@eslint/css": "1.0.0",
+    "@vitest/coverage-v8": "4.1.0",
+    "eslint": "10.0.3"
+  },
+  "peerDependencies": {
+    "@eslint/css": ">=1.0.0",
+    "eslint": ">=10.0.0"
+  }
+}
