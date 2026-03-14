@@ -12,25 +12,25 @@ npm install -D biome-plugin-css-prefer-logical-property @biomejs/biome
 
 ## Usage
 
-Add the plugin rules to your `biome.json`:
+Add the plugin to your `biome.json`:
 
 ```json
 {
   "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
   "plugins": [
-    "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical-properties.grit",
-    "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical-values.grit",
-    "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical-units.grit"
+    "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical.grit"
   ]
 }
 ```
 
-You can also enable individual rules instead of all three:
+You can also enable individual rules instead of the combined one:
 
 ```json
 {
   "plugins": [
-    "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical-properties.grit"
+    "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical-properties.grit",
+    "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical-values.grit",
+    "./node_modules/biome-plugin-css-prefer-logical-property/rules/prefer-logical-units.grit"
   ]
 }
 ```
