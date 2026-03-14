@@ -137,5 +137,5 @@
     "builtin": true
   },
   "globals": {},
-  "ignorePatterns": ["node_modules", "dist", "*.d.ts", "bun.lock"]
+  "ignorePatterns": ["node_modules", "dist", "*.d.ts", "bun.lock", "apps"]
 }
