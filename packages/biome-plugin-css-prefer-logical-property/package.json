@@ -1,0 +1,41 @@
+{
+  "name": "biome-plugin-css-prefer-logical-property",
+  "version": "0.1.0",
+  "description": "Biome plugin that detects physical CSS properties, values, and units and suggests logical alternatives",
+  "keywords": [
+    "biome",
+    "biome-plugin",
+    "css",
+    "gritql",
+    "i18n",
+    "logical-properties",
+    "ltr",
+    "rtl"
+  ],
+  "homepage": "https://github.com/kkkaoru/eslint-plugin-css-logical-property#readme",
+  "bugs": {
+    "url": "https://github.com/kkkaoru/eslint-plugin-css-logical-property/issues"
+  },
+  "license": "MIT",
+  "author": "kkkaoru",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kkkaoru/eslint-plugin-css-logical-property",
+    "directory": "packages/biome-plugin-css-prefer-logical-property"
+  },
+  "files": [
+    "rules"
+  ],
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.0",
+    "@vitest/coverage-v8": "4.1.0"
+  },
+  "peerDependencies": {
+    "@biomejs/biome": ">=2.0.0"
+  }
+}

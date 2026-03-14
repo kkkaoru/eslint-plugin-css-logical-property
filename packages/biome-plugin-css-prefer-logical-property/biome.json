@@ -1,0 +1,8 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "plugins": [
+    "./rules/prefer-logical-properties.grit",
+    "./rules/prefer-logical-values.grit",
+    "./rules/prefer-logical-units.grit"
+  ]
+}
