@@ -1,0 +1,85 @@
+language css;
+
+// Detect physical CSS units that should use logical equivalents
+// Longer unit patterns must come before shorter ones to prevent false matches
+or {
+  // Dynamic viewport units
+  r"[0-9]+\.?[0-9]*dvw" as $val where {
+    register_diagnostic(
+      span = $val,
+      message = "Use logical unit 'dvi' instead of 'dvw'.",
+      severity = "warning"
+    )
+  },
+  r"[0-9]+\.?[0-9]*dvh" as $val where {
+    register_diagnostic(
+      span = $val,
+      message = "Use logical unit 'dvb' instead of 'dvh'.",
+      severity = "warning"
+    )
+  },
+
+  // Small viewport units
+  r"[0-9]+\.?[0-9]*svw" as $val where {
+    register_diagnostic(
+      span = $val,
+      message = "Use logical unit 'svi' instead of 'svw'.",
+      severity = "warning"
+    )
+  },
+  r"[0-9]+\.?[0-9]*svh" as $val where {
+    register_diagnostic(
+      span = $val,
+      message = "Use logical unit 'svb' instead of 'svh'.",
+      severity = "warning"
+    )
+  },
+
+  // Large viewport units
+  r"[0-9]+\.?[0-9]*lvw" as $val where {
+    register_diagnostic(
+      span = $val,
+      message = "Use logical unit 'lvi' instead of 'lvw'.",
+      severity = "warning"
+    )
+  },
+  r"[0-9]+\.?[0-9]*lvh" as $val where {
+    register_diagnostic(
+      span = $val,
+      message = "Use logical unit 'lvb' instead of 'lvh'.",
+      severity = "warning"
+    )
+  },
+
+  // Container query units
+  r"[0-9]+\.?[0-9]*cqw" as $val where {
+    register_diagnostic(
+      span = $val,
+      message = "Use logical unit 'cqi' instead of 'cqw'.",
+      severity = "warning"
+    )
+  },
+  r"[0-9]+\.?[0-9]*cqh" as $val where {
+    register_diagnostic(
+      span = $val,
+      message = "Use logical unit 'cqb' instead of 'cqh'.",
+      severity = "warning"
+    )
+  },
+
+  // Standard viewport units (must come after longer prefixed units)
+  r"[0-9]+\.?[0-9]*vw" as $val where {
+    register_diagnostic(
+      span = $val,
+      message = "Use logical unit 'vi' instead of 'vw'.",
+      severity = "warning"
+    )
+  },
+  r"[0-9]+\.?[0-9]*vh" as $val where {
+    register_diagnostic(
+      span = $val,
+      message = "Use logical unit 'vb' instead of 'vh'.",
+      severity = "warning"
+    )
+  }
+}

@@ -1,0 +1,396 @@
+language css;
+
+// Detect physical CSS properties that should use logical equivalents
+or {
+  // Inset
+  `top: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'inset-block-start' instead of 'top'.",
+      severity = "warning"
+    )
+  },
+  `right: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'inset-inline-end' instead of 'right'.",
+      severity = "warning"
+    )
+  },
+  `bottom: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'inset-block-end' instead of 'bottom'.",
+      severity = "warning"
+    )
+  },
+  `left: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'inset-inline-start' instead of 'left'.",
+      severity = "warning"
+    )
+  },
+
+  // Size
+  `width: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'inline-size' instead of 'width'.",
+      severity = "warning"
+    )
+  },
+  `height: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'block-size' instead of 'height'.",
+      severity = "warning"
+    )
+  },
+  `min-width: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'min-inline-size' instead of 'min-width'.",
+      severity = "warning"
+    )
+  },
+  `min-height: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'min-block-size' instead of 'min-height'.",
+      severity = "warning"
+    )
+  },
+  `max-width: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'max-inline-size' instead of 'max-width'.",
+      severity = "warning"
+    )
+  },
+  `max-height: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'max-block-size' instead of 'max-height'.",
+      severity = "warning"
+    )
+  },
+
+  // Contain intrinsic size
+  `contain-intrinsic-width: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'contain-intrinsic-inline-size' instead of 'contain-intrinsic-width'.",
+      severity = "warning"
+    )
+  },
+  `contain-intrinsic-height: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'contain-intrinsic-block-size' instead of 'contain-intrinsic-height'.",
+      severity = "warning"
+    )
+  },
+
+  // Margin
+  `margin-top: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'margin-block-start' instead of 'margin-top'.",
+      severity = "warning"
+    )
+  },
+  `margin-right: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'margin-inline-end' instead of 'margin-right'.",
+      severity = "warning"
+    )
+  },
+  `margin-bottom: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'margin-block-end' instead of 'margin-bottom'.",
+      severity = "warning"
+    )
+  },
+  `margin-left: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'margin-inline-start' instead of 'margin-left'.",
+      severity = "warning"
+    )
+  },
+
+  // Padding
+  `padding-top: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'padding-block-start' instead of 'padding-top'.",
+      severity = "warning"
+    )
+  },
+  `padding-right: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'padding-inline-end' instead of 'padding-right'.",
+      severity = "warning"
+    )
+  },
+  `padding-bottom: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'padding-block-end' instead of 'padding-bottom'.",
+      severity = "warning"
+    )
+  },
+  `padding-left: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'padding-inline-start' instead of 'padding-left'.",
+      severity = "warning"
+    )
+  },
+
+  // Border shorthand
+  `border-top: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-block-start' instead of 'border-top'.",
+      severity = "warning"
+    )
+  },
+  `border-right: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-inline-end' instead of 'border-right'.",
+      severity = "warning"
+    )
+  },
+  `border-bottom: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-block-end' instead of 'border-bottom'.",
+      severity = "warning"
+    )
+  },
+  `border-left: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-inline-start' instead of 'border-left'.",
+      severity = "warning"
+    )
+  },
+
+  // Border color
+  `border-top-color: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-block-start-color' instead of 'border-top-color'.",
+      severity = "warning"
+    )
+  },
+  `border-right-color: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-inline-end-color' instead of 'border-right-color'.",
+      severity = "warning"
+    )
+  },
+  `border-bottom-color: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-block-end-color' instead of 'border-bottom-color'.",
+      severity = "warning"
+    )
+  },
+  `border-left-color: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-inline-start-color' instead of 'border-left-color'.",
+      severity = "warning"
+    )
+  },
+
+  // Border style
+  `border-top-style: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-block-start-style' instead of 'border-top-style'.",
+      severity = "warning"
+    )
+  },
+  `border-right-style: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-inline-end-style' instead of 'border-right-style'.",
+      severity = "warning"
+    )
+  },
+  `border-bottom-style: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-block-end-style' instead of 'border-bottom-style'.",
+      severity = "warning"
+    )
+  },
+  `border-left-style: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-inline-start-style' instead of 'border-left-style'.",
+      severity = "warning"
+    )
+  },
+
+  // Border width
+  `border-top-width: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-block-start-width' instead of 'border-top-width'.",
+      severity = "warning"
+    )
+  },
+  `border-right-width: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-inline-end-width' instead of 'border-right-width'.",
+      severity = "warning"
+    )
+  },
+  `border-bottom-width: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-block-end-width' instead of 'border-bottom-width'.",
+      severity = "warning"
+    )
+  },
+  `border-left-width: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-inline-start-width' instead of 'border-left-width'.",
+      severity = "warning"
+    )
+  },
+
+  // Border radius
+  `border-top-left-radius: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-start-start-radius' instead of 'border-top-left-radius'.",
+      severity = "warning"
+    )
+  },
+  `border-top-right-radius: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-start-end-radius' instead of 'border-top-right-radius'.",
+      severity = "warning"
+    )
+  },
+  `border-bottom-right-radius: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-end-end-radius' instead of 'border-bottom-right-radius'.",
+      severity = "warning"
+    )
+  },
+  `border-bottom-left-radius: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'border-end-start-radius' instead of 'border-bottom-left-radius'.",
+      severity = "warning"
+    )
+  },
+
+  // Overflow
+  `overflow-x: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'overflow-inline' instead of 'overflow-x'.",
+      severity = "warning"
+    )
+  },
+  `overflow-y: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'overflow-block' instead of 'overflow-y'.",
+      severity = "warning"
+    )
+  },
+
+  // Overscroll behavior
+  `overscroll-behavior-x: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'overscroll-behavior-inline' instead of 'overscroll-behavior-x'.",
+      severity = "warning"
+    )
+  },
+  `overscroll-behavior-y: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'overscroll-behavior-block' instead of 'overscroll-behavior-y'.",
+      severity = "warning"
+    )
+  },
+
+  // Scroll margin
+  `scroll-margin-top: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'scroll-margin-block-start' instead of 'scroll-margin-top'.",
+      severity = "warning"
+    )
+  },
+  `scroll-margin-right: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'scroll-margin-inline-end' instead of 'scroll-margin-right'.",
+      severity = "warning"
+    )
+  },
+  `scroll-margin-bottom: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'scroll-margin-block-end' instead of 'scroll-margin-bottom'.",
+      severity = "warning"
+    )
+  },
+  `scroll-margin-left: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'scroll-margin-inline-start' instead of 'scroll-margin-left'.",
+      severity = "warning"
+    )
+  },
+
+  // Scroll padding
+  `scroll-padding-top: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'scroll-padding-block-start' instead of 'scroll-padding-top'.",
+      severity = "warning"
+    )
+  },
+  `scroll-padding-right: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'scroll-padding-inline-end' instead of 'scroll-padding-right'.",
+      severity = "warning"
+    )
+  },
+  `scroll-padding-bottom: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'scroll-padding-block-end' instead of 'scroll-padding-bottom'.",
+      severity = "warning"
+    )
+  },
+  `scroll-padding-left: $val` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical property 'scroll-padding-inline-start' instead of 'scroll-padding-left'.",
+      severity = "warning"
+    )
+  }
+}

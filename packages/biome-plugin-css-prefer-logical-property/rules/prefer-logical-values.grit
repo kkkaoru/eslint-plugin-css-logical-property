@@ -1,0 +1,100 @@
+language css;
+
+// Detect physical CSS values that should use logical equivalents
+or {
+  // text-align: left/right
+  `text-align: left` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical value 'start' instead of 'left' for 'text-align'.",
+      severity = "warning"
+    )
+  },
+  `text-align: right` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical value 'end' instead of 'right' for 'text-align'.",
+      severity = "warning"
+    )
+  },
+
+  // float: left/right
+  `float: left` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical value 'inline-start' instead of 'left' for 'float'.",
+      severity = "warning"
+    )
+  },
+  `float: right` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical value 'inline-end' instead of 'right' for 'float'.",
+      severity = "warning"
+    )
+  },
+
+  // clear: left/right
+  `clear: left` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical value 'inline-start' instead of 'left' for 'clear'.",
+      severity = "warning"
+    )
+  },
+  `clear: right` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical value 'inline-end' instead of 'right' for 'clear'.",
+      severity = "warning"
+    )
+  },
+
+  // resize: horizontal/vertical
+  `resize: horizontal` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical value 'inline' instead of 'horizontal' for 'resize'.",
+      severity = "warning"
+    )
+  },
+  `resize: vertical` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical value 'block' instead of 'vertical' for 'resize'.",
+      severity = "warning"
+    )
+  },
+
+  // caption-side: left/right
+  `caption-side: left` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical value 'inline-start' instead of 'left' for 'caption-side'.",
+      severity = "warning"
+    )
+  },
+  `caption-side: right` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical value 'inline-end' instead of 'right' for 'caption-side'.",
+      severity = "warning"
+    )
+  },
+
+  // box-orient: horizontal/vertical
+  `box-orient: horizontal` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical value 'inline-axis' instead of 'horizontal' for 'box-orient'.",
+      severity = "warning"
+    )
+  },
+  `box-orient: vertical` as $decl where {
+    register_diagnostic(
+      span = $decl,
+      message = "Use logical value 'block-axis' instead of 'vertical' for 'box-orient'.",
+      severity = "warning"
+    )
+  }
+}
